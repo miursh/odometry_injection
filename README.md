@@ -12,6 +12,12 @@ It reads a ROS 2 bag, checks whether reliable localization already exists, and w
 
 This is intended for short recordings where relative localization is sufficient, for example around 20 seconds of driving.
 
+## Scope
+
+- Intended use: offline ROS 2 bag processing for short segments
+- Output: relative odometry and TF based on dead reckoning
+- Not provided: global map alignment, loop closure, or absolute localization correction
+
 ## Repository layout
 
 ```
@@ -98,3 +104,17 @@ Options:
 - If the bag already contains reliable localization, the tool exits without injection.
 - If `/diagnostics` conventions change on a new platform, the localization decision logic may need to be updated.
 - The generated localization is relative, not globally aligned.
+
+## Public Repository Checklist
+
+Before pushing, run the sensitive-content check:
+
+```bash
+./scripts/check_sensitive_content.sh
+```
+
+This scan is also executed in GitHub Actions on `push` and `pull_request`.
+
+## License
+
+Apache License 2.0. See `LICENSE`.
