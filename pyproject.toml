@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "odometry-injection"
+version = "0.1.0"
+description = "Inject odometry topics into ROS 2 bags when onboard localization is unavailable"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "PyYAML>=6.0.2",
+    "tqdm>=4.67.1",
+]
+
+[project.optional-dependencies]
+dev = []
+
+[project.scripts]
+inject-odometry = "inject_odometry:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = ["inject_odometry"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
